@@ -20,9 +20,19 @@ Conectar 2 apps
 
 IDEAS:
 - SSApp -> SocialSportApp
+- Aplicación donde, al iniciar sesión con un nombre (que se recuerda durante la sesión), se puedan compartir imágenes asociadas a una lista de deportes (dependiendo del deporte se piden distintos parámetros a agregar a la publicación (e.g. ski pediría velocidad máxima, metros en bajada, y así)). En base a estas subidas, se puede buscar por palabras según las palabras claves (como tags) que se les dan a las publicaciones, lo cual también se puede filtrar por deporte. Al publicar que mantenga la hora de publicación [6 PUNTOS]
+Las publicaciones que se han hecho durante la sesión se pueden eliminar en otra página mediante un 'swipe', al acccionar debe sonar algo. [3 PUNTOS]
+En otra pantalla incluir un gráfico sobre la popularidad de cada deporte publicado. [1 PUNTO]
 
 
 ESTRUCTURA:
+-> Toda la memoria de 'perfil' es durante la sesión, pero las publicaciones de todos los 'perfiles' son permanentes.
+-> Pantalla de inicio que pide username (no existe autentifiación, sólo el username para el trato durante la sesión).
+-> 3 menúes: 
+    -> Publicaciones.
+    -> Publicar.
+    -> Stats de los deportes, gráfico.
+    -> Perfil.
 
 
 COMANDOS NECESARIOS:
