@@ -1,3 +1,6 @@
+# Documentación
+https://docs.expo.dev/
+
 FEATURES (en + los que propongo hacer):
 + Pantalla de inicio
 + Navegación con paso de parámetros
@@ -16,16 +19,19 @@ Consumir una API
 + Usar la hora
 Conectar 2 apps
 
+Pack de fuente:
+https://www.npmjs.com/package/@expo-google-fonts/inter
+
 
 
 IDEAS:
 - SSApp -> SocialSportApp
-- Aplicación donde, al iniciar sesión con un nombre (que se recuerda durante la sesión), se puedan compartir imágenes asociadas a una lista de deportes (dependiendo del deporte se piden distintos parámetros a agregar a la publicación (e.g. ski pediría velocidad máxima, metros en bajada, y así)). En base a estas subidas, se puede buscar por palabras según las palabras claves (como tags) que se les dan a las publicaciones, lo cual también se puede filtrar por deporte. Al publicar que mantenga la hora de publicación [6 PUNTOS]
+- Aplicación donde, al iniciar sesión con un nombre (que se recuerda durante la sesión), se puedan compartir imágenes asociadas a una lista de deportes (dependiendo del deporte se piden distintos parámetros a agregar a la publicación (e.g. ski pediría velocidad máxima, metros en bajada, y así)). En base a estas subidas, se puede buscar por palabras según las palabras claves (como tags) que se les dan a las publicaciones, lo cual también se puede filtrar por deporte. Al publicar que mantenga la hora de publicación [5 PUNTOS]
 Las publicaciones que se han hecho durante la sesión se pueden eliminar en otra página mediante un 'swipe', al acccionar debe sonar algo. [3 PUNTOS]
 En otra pantalla incluir un gráfico sobre la popularidad de cada deporte publicado. [1 PUNTO]
 
 
-ESTRUCTURA:
+ESTRUCTURA APP:
 -> Toda la memoria de 'perfil' es durante la sesión, pero las publicaciones de todos los 'perfiles' son permanentes.
 -> Pantalla de inicio que pide username (no existe autentifiación, sólo el username para el trato durante la sesión).
 -> 3 menúes: 
@@ -33,6 +39,15 @@ ESTRUCTURA:
     -> Publicar.
     -> Stats de los deportes, gráfico.
     -> Perfil.
+
+ESTRUCTURA CARPETAS:
+-> index con su respectivo layout como pantalla de inicio (en este caso simplemente para dar tu nombre)
+-> ruta de (tabs) para la app como tal con las 4 opciones de navegación.
+
+-> carpeta app para las rutas con sus layouts
+-> carpeta pages para la estructura visual (componentes) del mapa de rutas de app
+
+-> la idea de la carpeta components es poner las estructuras que se repiten cosa de llamarlas siempre de ahí
 
 
 COMANDOS NECESARIOS:
@@ -46,7 +61,7 @@ https://developer.android.com/studio
 - Para archivos: En el terminal general:
 npx create-expo-app SSApp
 
-- Para activar el emulador (en mi caso windows):
+- Para activar el emulador (en mi caso windows, sólo android. Para tu air se puede iphone):
 1. Abrir Android Studio
 2. Seleccionar More Actions
 3. Virtual Device Manager
