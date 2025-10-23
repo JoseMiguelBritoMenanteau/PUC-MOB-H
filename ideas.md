@@ -81,5 +81,6 @@ Tras npx expo start, precionar 'a' en el terminal
 - Para hacer algo con el expo del emulador (se me olvidó):
 ctrl + m
 
-
-
+- para que funcione bien el codigo de la pagina "publish" instalar:
+1. npx expo install expo-image-picker
+2. npm install @react-native-picker/picker
