@@ -26,7 +26,6 @@ const deportes = [
     {nombre: "Gym", campos: ["Ejercicios realizados", "Peso levantado"]}, // Este quizas eliminarlo
     
 ];
-const { username } = useAppContext();
 
 export default function Publish() {
     const [deporte, setDeporte] = useState(deportes[0].nombre);
@@ -34,8 +33,9 @@ export default function Publish() {
     const [image, setImage] = useState<string | null>(null);
     const [tags, setTags] = useState("");
     const [deporteInput, setDeporteInput] = useState("");
+    const { username } = useAppContext();
 
-    const handleDeporteChange = (nuevoDeporte: string) => { 
+    const handleDeporteChange = (nuevoDeporte: string) => {
         setDeporte(nuevoDeporte);
         setCampos({});  
     };
