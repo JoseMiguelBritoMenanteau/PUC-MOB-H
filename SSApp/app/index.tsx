@@ -30,7 +30,7 @@ export default function Index() {
     setTimeout(async () => {
       setLoading(false);
       await playSuccessSound();
-      router.replace('/home');
+      router.replace('/Home');
     }, 2000);
   };
 

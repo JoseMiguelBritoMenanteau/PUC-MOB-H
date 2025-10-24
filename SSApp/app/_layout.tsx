@@ -8,7 +8,7 @@ export default function RootLayout() {
     <GestureHandlerRootView style={{ flex: 1 }}>
       <AppProvider>
         <PublicacionesProvider>
-          <Stack />
+          <Stack screenOptions={{ headerShown: false }}/>
         </PublicacionesProvider>
       </AppProvider>
     </GestureHandlerRootView>
