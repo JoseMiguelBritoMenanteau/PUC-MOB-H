@@ -1,6 +1,6 @@
 import React, { createContext, useState, ReactNode , useContext} from 'react';
 
-type Publicacion = {
+export type Publicacion = {
     username: string; 
     deporte: string;
     campos: { [key: string]: string };
@@ -12,6 +12,7 @@ type Publicacion = {
 type PublicacionesContextType = {
     publicaciones: Publicacion[];
     agregarPublicacion: (publicacion: Publicacion) => void;
+    eliminarPublicacion: (publicacion: Publicacion) => void;
 };
 
 const PublicacionesContext = createContext<PublicacionesContextType | undefined>(undefined);
@@ -29,8 +30,19 @@ export const PublicacionesProvider = ({children}: {children: ReactNode}) => {
         setPublicaciones(prev => [publicacion, ...prev]);
     };
 
+    const eliminarPublicacion = (publicacionAEliminar: Publicacion) => {
+        setPublicaciones(prev => 
+            prev.filter(publicacion => 
+                !(publicacion.username === publicacionAEliminar.username &&
+                  publicacion.deporte === publicacionAEliminar.deporte &&
+                  publicacion.fecha === publicacionAEliminar.fecha &&
+                  publicacion.image === publicacionAEliminar.image)
+            )
+        );
+    };
+
     return (
-        <PublicacionesContext.Provider value={{ publicaciones, agregarPublicacion }}>
+        <PublicacionesContext.Provider value={{ publicaciones, agregarPublicacion, eliminarPublicacion }}>
             {children}
         </PublicacionesContext.Provider>
     );
