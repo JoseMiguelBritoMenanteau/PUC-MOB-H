@@ -1,9 +1,11 @@
 import { Pressable, Text, View, StyleSheet, Image, TextInput } from "react-native";
 import { useRouter } from "expo-router";
 import { useState } from 'react';
+import Publish from "../pages/publish/Publish";
 
 
 export default function Index() {
+  return <Publish/> //Descomentar esto para ver la pantalla publicar 
 
   const [username, setUsername] = useState('');
 
