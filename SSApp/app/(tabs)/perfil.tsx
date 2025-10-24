@@ -2,9 +2,10 @@ import { Pressable, Text, View, StyleSheet, Image, TextInput } from "react-nativ
 import Profile from "../../pages/profile/Profile";
 
 export default function Perfil() {
-
   return (
-    <Profile />
+    <View style={{ flex: 1, paddingTop: 50, backgroundColor: "#23232A"}}>
+      <Profile />
+    </View>
   );
 }
 

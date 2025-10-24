@@ -35,34 +35,36 @@ export default function Index() {
   };
 
   return (
-    <KeyboardAvoidingView
-      style={{ flex: 1 }}
-      behavior={Platform.OS === "ios" ? "padding" : "height"}
-      keyboardVerticalOffset={Platform.OS === "ios" ? 30 : 30}>
-      <View style={styles.container}>
-        {loading ? (
-          <View style={styles.loadingContainer}>
-            <ActivityIndicator size="large" color="#C97B3A" />
-            <Text style={styles.loadingText}>Cargando...</Text>
-          </View>
-        ) : (
-          <>
-            <View style={styles.containerTitle}>
-              <Image source={require('../assets/Logo_Blanco.png')} style={styles.logo} resizeMode="contain" />
-              <Text style={styles.titulo}>Bienvenido a Social Sport</Text>
+    <View style={[styles.container, { paddingTop: 35 }]}>
+      <KeyboardAvoidingView
+        style={{ flex: 1 }}
+        behavior={Platform.OS === "ios" ? "padding" : "height"}
+        keyboardVerticalOffset={Platform.OS === "ios" ? 0 : 0}>
+        <View style={styles.container}>
+          {loading ? (
+            <View style={styles.loadingContainer}>
+              <ActivityIndicator size="large" color="#C97B3A" />
+              <Text style={styles.loadingText}>Cargando...</Text>
             </View>
-            <View style={styles.containerInfo}>
-              <TextInput style={styles.inputUsername} placeholder='Ingresa tu nombre' placeholderTextColor='hsla(0, 0%, 80%, 1.00))'
-                value={username} onChangeText={setUsername} />
-              <Pressable onPress={handleButton} style={styles.loginButton}>
-                <Text style={{ textAlign: 'center', color: 'hsla(0, 0%, 80%, 1.00))', fontWeight: 'bold', fontSize: 17 }}>Ingresar</Text>
-              </Pressable>
-              <Text style={styles.subtitle}>Al ingresar se aceptan las Políticas de Terminos y Condiciones.</Text>
-            </View>
-          </>
-        )}
-      </View>
-    </KeyboardAvoidingView>
+          ) : (
+            <>
+              <View style={styles.containerTitle}>
+                <Image source={require('../assets/Logo_Blanco.png')} style={styles.logo} resizeMode="contain" />
+                <Text style={styles.titulo}>Bienvenido a Social Sport</Text>
+              </View>
+              <View style={styles.containerInfo}>
+                <TextInput style={styles.inputUsername} placeholder='Ingresa tu nombre' placeholderTextColor='hsla(0, 0%, 80%, 1.00))'
+                  value={username} onChangeText={setUsername} />
+                <Pressable onPress={handleButton} style={styles.loginButton}>
+                  <Text style={{ textAlign: 'center', color: 'hsla(0, 0%, 80%, 1.00))', fontWeight: 'bold', fontSize: 17 }}>Ingresar</Text>
+                </Pressable>
+                <Text style={styles.subtitle}>Al ingresar se aceptan las Políticas de Terminos y Condiciones.</Text>
+              </View>
+            </>
+          )}
+        </View>
+      </KeyboardAvoidingView>
+    </View>
     
   );
 }

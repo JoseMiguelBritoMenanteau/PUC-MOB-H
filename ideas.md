@@ -3,12 +3,12 @@ https://docs.expo.dev/
 
 FEATURES (en + los que propongo hacer):
 + Pantalla de inicio
-Navegación con paso de parámetros
++ Navegación con paso de parámetros (Se traspasa la informacion de una pestaña dentro de la sesion, se elimina la data al cerrar la App)
 + Subir archivos
 Modo oscuro/claro
 Busqueda
 Filtro (por categoría, favoritos, etc)
-+ Compartir info
++ Compartir info ()
 + Animaciones básicas
 + + Swipe to delete
 Persistencia de datos

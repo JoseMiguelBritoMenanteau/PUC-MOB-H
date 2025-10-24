@@ -2,9 +2,10 @@ import { Pressable, Text, View, StyleSheet, Image, TextInput } from "react-nativ
 import Publish from '@/pages/publish/Publish';
 
 export default function PublishTab() {
-
   return (
-    <Publish />
+    <View style={{ flex: 1, paddingTop: 50 , backgroundColor: "#23232A"}}>
+      <Publish />
+    </View>
   );
 }
 

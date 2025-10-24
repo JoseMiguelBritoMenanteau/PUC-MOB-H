@@ -4,7 +4,9 @@ import Feed from '../../pages/feed/Feed';
 export default function Home() {
 
   return (
-    <Feed/>
+    <View style={{ flex: 1, paddingTop: 50, backgroundColor: "#23232A" }}>
+      <Feed/>
+    </View>
   );
 }
 
