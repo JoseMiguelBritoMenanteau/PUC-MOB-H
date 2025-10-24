@@ -84,3 +84,13 @@ ctrl + m
 - para que funcione bien el codigo de la pagina "publish" instalar:
 1. npx expo install expo-image-picker
 2. npm install @react-native-picker/picker
+
+
+- Para instalar lo necesairo para los gráficos:
+npx expo install victory-native
+npm install victory
+npx expo install victory-native react-native-svg
+https://nearform.com/open-source/victory-native/docs/polar/pie/pie-charts/
+
+
+
