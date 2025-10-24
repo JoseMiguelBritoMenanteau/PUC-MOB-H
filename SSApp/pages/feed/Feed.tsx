@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Text, Image, FlatList} from "react-native";
+import { View, Text, Image, FlatList, Share, TouchableOpacity} from "react-native";
 import styles from "./Feed_styles";
 import { usePublicaciones } from "../../context/PublicacionesContext";
 
@@ -10,6 +10,20 @@ type PublicacionType = {
     image: string | null;
     tags: string[];
     fecha: string;
+
+};
+
+
+
+const onShare = async (i: PublicacionType) => {
+    let mensaje = `Actividad hecha: ${i.deporte}`;
+    try {
+        await Share.share({
+            message: mensaje,
+        });
+    } catch (error) {
+        console.error('Error =>', error)
+    }
 };
 
 const Publicacion = ({item}: {item: PublicacionType}) => (
@@ -28,6 +42,10 @@ const Publicacion = ({item}: {item: PublicacionType}) => (
         <Text style = {styles.fecha}>
             {new Date(item.fecha).toLocaleString()}
         </Text>
+
+        <TouchableOpacity style = {styles.shareButton} onPress = {() => onShare(item)}>
+            <Text style = {styles.shareButtonText} >Share</Text>
+        </TouchableOpacity>
     </View>
 );
 
