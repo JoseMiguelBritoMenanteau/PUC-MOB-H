@@ -57,6 +57,20 @@ export default StyleSheet.create({
         marginBottom: 4,
     },
 
+    shareButton: {
+        marginTop: 10,
+        padding: 9,
+        borderRadius: 12,
+        alignSelf: 'center',
+        backgroundColor: "#a8632aff",
+    },
+
+    shareButtonText: {
+        color: '#fff',
+        fontSize: 12,
+        textAlign: 'center'
+    },
+
     username: {
         position: "absolute",
         top: 10,
