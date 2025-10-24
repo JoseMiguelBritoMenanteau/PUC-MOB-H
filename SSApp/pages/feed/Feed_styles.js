@@ -8,6 +8,7 @@ export default StyleSheet.create({
     },
 
     imagen: {
+        marginTop: 20,
         height: 200,
         borderRadius: 10,
         marginBottom: 10,
@@ -42,9 +43,31 @@ export default StyleSheet.create({
         fontStyle: "italic"
     },
     
-    campo:{
+    camposFila: {
+        flexDirection: 'row',
+        justifyContent: 'center',
+        alignItems: 'center',
+        marginVertical: 8,
+        flexWrap: 'wrap',
+    },
+    campo: {
         color: "#fff",
         fontSize: 16,
+        marginHorizontal: 8,
+        marginBottom: 4,
+    },
+
+    username: {
+        position: "absolute",
+        top: 10,
+        left: 15,
+        borderRadius: 8,
+        paddingHorizontal:8,
+        paddingVertical: 2,
+        zIndex: 2,
+        color: "#fff",
+        backgroundColor: "rgba(0, 0, 0, 0.4)",
+        fontWeight: "bold"
     }
 });
     

@@ -3,6 +3,7 @@ import { View, Text, TextInput, Button, Image, TouchableOpacity, ScrollView, Fla
 import styles from "./Publish_styles";
 import * as ImagePicker from 'expo-image-picker';
 import { usePublicaciones } from '../../context/PublicacionesContext';
+import { useAppContext } from '../../context/Context';
 
 // aca se va a tener la lista de deportes
 
@@ -32,8 +33,9 @@ export default function Publish() {
     const [image, setImage] = useState<string | null>(null);
     const [tags, setTags] = useState("");
     const [deporteInput, setDeporteInput] = useState("");
+    const { username } = useAppContext();
 
-    const handleDeporteChange = (nuevoDeporte: string) => { 
+    const handleDeporteChange = (nuevoDeporte: string) => {
         setDeporte(nuevoDeporte);
         setCampos({});  
     };
@@ -61,6 +63,7 @@ export default function Publish() {
         return;
       }
       const publicacion = {
+        username,
         deporte,
         campos,
         image,

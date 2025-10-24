@@ -1,10 +1,13 @@
 import { Stack } from "expo-router";
 import { PublicacionesProvider } from '../context/PublicacionesContext';
+import { AppProvider } from "@/context/Context";
 
 export default function RootLayout() {
   return (
-    <PublicacionesProvider>
-      <Stack />
-    </PublicacionesProvider>
+    <AppProvider>
+      <PublicacionesProvider>
+        <Stack />
+      </PublicacionesProvider>
+    </AppProvider>
   );
 }

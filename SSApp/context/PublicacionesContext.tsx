@@ -1,6 +1,7 @@
 import React, { createContext, useState, ReactNode , useContext} from 'react';
 
 type Publicacion = {
+    username: string; 
     deporte: string;
     campos: { [key: string]: string };
     image: string | null;

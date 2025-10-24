@@ -4,6 +4,7 @@ import styles from "./Feed_styles";
 import { usePublicaciones } from "../../context/PublicacionesContext";
 
 type PublicacionType = {
+    username: string;
     deporte: string;
     campos: { [key: string]: string };
     image: string | null;
@@ -14,11 +15,12 @@ type PublicacionType = {
 const Publicacion = ({item}: {item: PublicacionType}) => (
     <View style = {styles.card}>
         {item.image && <Image source = {{uri: item.image}} style = {styles.imagen} />}
+        <Text style = {styles.username}> {item.username}</Text>
         <Text style = {styles.deporte}>{item.deporte}</Text>
-        <View style={{ width: '100%' }}>
+        <View style={styles.camposFila}>
             {Object.entries(item.campos).map(([campo, valor]) => (
-                <Text key={campo} style = {styles.campo}> 
-                    {campo}: {valor} 
+                <Text key={campo} style={styles.campo}>
+                    {campo}: {valor}
                 </Text>
             ))}
         </View>
