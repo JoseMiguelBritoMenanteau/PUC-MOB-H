@@ -29,7 +29,7 @@ const deportes = [
 
 export default function Publish() {
     const [deporte, setDeporte] = useState(deportes[0].nombre);
-    const [campos, setCampos] = useState<({ [key: string]: string }>({}));
+    const [campos, setCampos] = useState<{ [key: string]: string }>({});
     const [image, setImage] = useState<string | null>(null);
     const [tags, setTags] = useState("");
 

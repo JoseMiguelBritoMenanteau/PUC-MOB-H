@@ -4,7 +4,7 @@ export default function Home() {
 
   return (
     <View>
-        
+        <Text>Hola</Text>
     </View>
   );
 }

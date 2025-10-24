@@ -4,7 +4,7 @@ export default function Perfil() {
 
   return (
     <View>
-        
+        <Text>Hola</Text>
     </View>
   );
 }
