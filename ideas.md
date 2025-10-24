@@ -3,16 +3,16 @@ https://docs.expo.dev/
 
 FEATURES (en + los que propongo hacer):
 + Pantalla de inicio
-+ Navegación con paso de parámetros
+Navegación con paso de parámetros
 + Subir archivos
 Modo oscuro/claro
-+ Busqueda
-+ Filtro (por categoría, favoritos, etc)
-Compartir info
+Busqueda
+Filtro (por categoría, favoritos, etc)
++ Compartir info
 + Animaciones básicas
-+ Swipe to delete
++ + Swipe to delete
 Persistencia de datos
-+ Mostrar algun grafico     [No logramos hacerlo tras una seria cantidad de intentos]
+Mostrar algun grafico     [No logramos hacerlo tras una seria cantidad de intentos]
 + Reproducir sonidos
 Drag & Drop
 Consumir una API
