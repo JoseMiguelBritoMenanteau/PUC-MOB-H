@@ -93,4 +93,6 @@ npx expo install victory-native react-native-svg
 https://nearform.com/open-source/victory-native/docs/polar/pie/pie-charts/
 
 
+npm install expo-av
+
 
