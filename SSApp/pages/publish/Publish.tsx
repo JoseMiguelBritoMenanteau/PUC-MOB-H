@@ -3,6 +3,7 @@ import { View, Text, TextInput, Button, Image, TouchableOpacity, ScrollView, Fla
 import styles from "./Publish_styles";
 import * as ImagePicker from 'expo-image-picker';
 import { usePublicaciones } from '../../context/PublicacionesContext';
+import { useAppContext } from '../../context/Context';
 
 // aca se va a tener la lista de deportes
 
@@ -25,6 +26,7 @@ const deportes = [
     {nombre: "Gym", campos: ["Ejercicios realizados", "Peso levantado"]}, // Este quizas eliminarlo
     
 ];
+const { username } = useAppContext();
 
 export default function Publish() {
     const [deporte, setDeporte] = useState(deportes[0].nombre);
@@ -61,6 +63,7 @@ export default function Publish() {
         return;
       }
       const publicacion = {
+        username,
         deporte,
         campos,
         image,

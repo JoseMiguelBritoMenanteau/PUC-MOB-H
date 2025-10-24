@@ -1,8 +1,7 @@
 import { Pressable, Text, View, StyleSheet, Image, TextInput, KeyboardAvoidingView, Platform } from "react-native";
 import { useRouter } from "expo-router";
 import { useState } from 'react';
-import Publish from "../pages/publish/Publish";
-import Feed from "../pages/feed/Feed";
+import { useAppContext } from "../context/Context"; 
 
 
 export default function Index() {
@@ -12,6 +11,10 @@ export default function Index() {
   const router = useRouter();
 
   const handleButton = () => {
+    if (!username.trim()) {
+      alert("Por favor ingresa tu nombre.");
+      return;
+    }
     router.replace('/home');
   };
 
@@ -28,7 +31,8 @@ export default function Index() {
         </View>
         
         <View style = {styles.containerInfo}>
-          <TextInput style = {styles.inputUsername} placeholder = 'Ingresa tu nombre' placeholderTextColor='hsla(0, 0%, 80%, 1.00))' onChangeText = {setUsername} />
+          <TextInput style = {styles.inputUsername} placeholder = 'Ingresa tu nombre' placeholderTextColor='hsla(0, 0%, 80%, 1.00))' 
+          value={username} onChangeText = {setUsername} />
           <Pressable onPress = {handleButton} style = {styles.loginButton}>
             <Text style = {{textAlign: 'center', color: 'hsla(0, 0%, 80%, 1.00))', fontWeight: 'bold', fontSize: 17}}>Ingresar</Text>
           </Pressable>

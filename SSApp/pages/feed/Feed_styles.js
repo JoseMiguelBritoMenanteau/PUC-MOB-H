@@ -45,6 +45,19 @@ export default StyleSheet.create({
     campo:{
         color: "#fff",
         fontSize: 16,
+    },
+
+    username: {
+        position: "absolute",
+        top: 10,
+        left: 15,
+        borderRadius: 8,
+        paddingHorizontal:8,
+        paddingVertical: 2,
+        zIndex: 2,
+        color: "#fff",
+        backgroundColor: "rgba(0, 0, 0, 0.4)",
+        fontWeight: "bold"
     }
 });
     
