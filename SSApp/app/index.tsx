@@ -2,10 +2,12 @@ import { Pressable, Text, View, StyleSheet, Image, TextInput } from "react-nativ
 import { useRouter } from "expo-router";
 import { useState } from 'react';
 import Publish from "../pages/publish/Publish";
+import Feed from "../pages/feed/Feed";
 
 
 export default function Index() {
-  return <Publish/> //Descomentar esto para ver la pantalla publicar 
+  //return <Publish/> //Descomentar esto para ver la pantalla publicar 
+  //return <Feed/> //Descomentar esto para ver la pantalla feed
 
   const [username, setUsername] = useState('');
 

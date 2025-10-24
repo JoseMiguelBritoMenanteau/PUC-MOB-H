@@ -2,8 +2,7 @@ import React , { useState } from 'react';
 import { View, Text, TextInput, Button, Image, TouchableOpacity, ScrollView, FlatList, KeyboardAvoidingView, Platform } from 'react-native';
 import styles from "./Publish_styles";
 import * as ImagePicker from 'expo-image-picker';
-
-
+import { usePublicaciones } from '../../context/PublicacionesContext';
 
 // aca se va a tener la lista de deportes
 
@@ -54,21 +53,28 @@ export default function Publish() {
             }
     };
 
+    const { agregarPublicacion } = usePublicaciones();
+
     const handleGuardar = () => {
-    const publicacion = {
-      deporte,
-      campos,
-      image,
-      tags: tags.split(',').map(tag => tag.trim()),
-      fecha: new Date().toISOString(),
-    };
-    alert("¡Publicación guardada con éxito!");
-    setImage(null);
-    setDeporte("");
-    setDeporteInput("");
-    setCampos({});
-    setTags("");
-    };
+      if (!deporte || !image || !campos || !tags ) {
+        alert("Debes rellenar todos los campos para publicar.");
+        return;
+      }
+      const publicacion = {
+        deporte,
+        campos,
+        image,
+        tags: tags.split(',').map(tag => tag.trim()),
+        fecha: new Date().toISOString(),
+      };
+      agregarPublicacion(publicacion);
+      alert("¡Publicación guardada con éxito!");
+      setImage(null);
+      setDeporte("");
+      setDeporteInput("");
+      setCampos({});
+      setTags("");
+      };
 
     const deportesFiltrados = deportes.filter(deporte =>
       deporte.nombre.toLowerCase().includes(deporteInput.toLowerCase())
@@ -81,7 +87,7 @@ export default function Publish() {
       <KeyboardAvoidingView
         style={{ flex: 1 }}
         behavior={Platform.OS === "ios" ? "padding" : "height"}
-        keyboardVerticalOffset={Platform.OS === "ios" ? 90 : 120}
+        keyboardVerticalOffset={Platform.OS === "ios" ? 135 : 135}
       >
         <ScrollView contentContainerStyle={styles.container}>
           <Text style={styles.titulo}>Publicar actividad</Text>
