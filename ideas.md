@@ -12,7 +12,7 @@ Compartir info
 + Animaciones básicas
 + Swipe to delete
 Persistencia de datos
-+ Mostrar algun grafico
++ Mostrar algun grafico     [No logramos hacerlo tras una seria cantidad de intentos]
 + Reproducir sonidos
 Drag & Drop
 Consumir una API

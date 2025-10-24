@@ -1,9 +1,10 @@
 import React , { useState } from 'react';
-import { View, Text, TextInput, Button, Image, TouchableOpacity, ScrollView, FlatList, KeyboardAvoidingView, Platform } from 'react-native';
+import { View, Text, TextInput, Button, Image, TouchableOpacity, ScrollView, FlatList, KeyboardAvoidingView, Platform, Share } from 'react-native';
 import styles from "./Publish_styles";
 import * as ImagePicker from 'expo-image-picker';
 import { usePublicaciones } from '../../context/PublicacionesContext';
 import { useAppContext } from '../../context/Context';
+
 
 // aca se va a tener la lista de deportes
 
