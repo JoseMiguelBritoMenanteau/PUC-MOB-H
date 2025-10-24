@@ -1,4 +1,4 @@
-import { Pressable, Text, View, StyleSheet, Image, TextInput } from "react-native";
+import { Pressable, Text, View, StyleSheet, Image, TextInput, KeyboardAvoidingView, Platform } from "react-native";
 import { useRouter } from "expo-router";
 import { useState } from 'react';
 import Publish from "../pages/publish/Publish";
@@ -6,7 +6,6 @@ import Feed from "../pages/feed/Feed";
 
 
 export default function Index() {
-  /*return <Publish/>*/
 
   const [username, setUsername] = useState('');
 
@@ -17,22 +16,27 @@ export default function Index() {
   };
 
   return (
-    <View style = {styles.container}>
+    <KeyboardAvoidingView
+      style={{ flex: 1 }}
+      behavior={Platform.OS === "ios" ? "padding" : "height"}
+      keyboardVerticalOffset={Platform.OS === "ios" ? 30 : 30}>
+      <View style = {styles.container}>
 
-      <View style = {styles.containerTitle}>
-        <Image source = {require('../assets/Logo_Blanco.png')} style = {styles.logo} resizeMode="contain" />
-        <Text style = {styles.titulo}>Bienvenido a Social Sport</Text>
-      </View>
-      
-      <View style = {styles.containerInfo}>
-        <TextInput style = {styles.inputUsername} placeholder = 'Ingresa tu nombre' placeholderTextColor='hsla(0, 0%, 80%, 1.00))' onChangeText = {setUsername} />
-        <Pressable onPress = {handleButton} style = {styles.loginButton}>
-          <Text style = {{textAlign: 'center', color: 'hsla(0, 0%, 80%, 1.00))', fontWeight: 'bold', fontSize: 17}}>Ingresar</Text>
-        </Pressable>
-        <Text style = {styles.subtitle}>Al ingresar se aceptan las Políticas de Terminos y Condiciones.</Text>
-      </View>
+        <View style = {styles.containerTitle}>
+          <Image source = {require('../assets/Logo_Blanco.png')} style = {styles.logo} resizeMode="contain" />
+          <Text style = {styles.titulo}>Bienvenido a Social Sport</Text>
+        </View>
+        
+        <View style = {styles.containerInfo}>
+          <TextInput style = {styles.inputUsername} placeholder = 'Ingresa tu nombre' placeholderTextColor='hsla(0, 0%, 80%, 1.00))' onChangeText = {setUsername} />
+          <Pressable onPress = {handleButton} style = {styles.loginButton}>
+            <Text style = {{textAlign: 'center', color: 'hsla(0, 0%, 80%, 1.00))', fontWeight: 'bold', fontSize: 17}}>Ingresar</Text>
+          </Pressable>
+          <Text style = {styles.subtitle}>Al ingresar se aceptan las Políticas de Terminos y Condiciones.</Text>
+        </View>
 
-    </View>
+      </View>
+    </KeyboardAvoidingView>
     
   );
 }
