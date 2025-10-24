@@ -5,7 +5,7 @@ import Publish from "../pages/publish/Publish";
 
 
 export default function Index() {
-  return <Publish/> //Descomentar esto para ver la pantalla publicar 
+  /*return <Publish/>*/
 
   const [username, setUsername] = useState('');
 
