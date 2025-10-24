@@ -6,7 +6,8 @@ import { useAppContext } from "../context/Context";
 
 export default function Index() {
 
-  const [username, setUsername] = useState('');
+  
+  const { username, setUsername } = useAppContext();
 
   const router = useRouter();
 
