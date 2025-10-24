@@ -1,7 +1,8 @@
-import { Pressable, Text, View, StyleSheet, Image, TextInput, KeyboardAvoidingView, Platform } from "react-native";
+import { Pressable, Text, View, StyleSheet, Image, TextInput, KeyboardAvoidingView, Platform, ActivityIndicator} from "react-native";
 import { useRouter } from "expo-router";
 import { useState } from 'react';
 import { useAppContext } from "../context/Context"; 
+import { Audio } from 'expo-av';
 
 
 export default function Index() {
@@ -11,12 +12,26 @@ export default function Index() {
 
   const router = useRouter();
 
-  const handleButton = () => {
+  const [loading, setLoading] = useState(false);
+
+  const playSuccessSound = async () => {
+    const { sound } = await Audio.Sound.createAsync(
+      require('../assets/audios/verificacion.mp3')
+    );
+    await sound.playAsync();
+  };
+
+  const handleButton = async () => {
     if (!username.trim()) {
       alert("Por favor ingresa tu nombre.");
       return;
     }
-    router.replace('/home');
+    setLoading(true);
+    setTimeout(async () => {
+      setLoading(false);
+      await playSuccessSound();
+      router.replace('/home');
+    }, 2000);
   };
 
   return (
@@ -24,22 +39,28 @@ export default function Index() {
       style={{ flex: 1 }}
       behavior={Platform.OS === "ios" ? "padding" : "height"}
       keyboardVerticalOffset={Platform.OS === "ios" ? 30 : 30}>
-      <View style = {styles.container}>
-
-        <View style = {styles.containerTitle}>
-          <Image source = {require('../assets/Logo_Blanco.png')} style = {styles.logo} resizeMode="contain" />
-          <Text style = {styles.titulo}>Bienvenido a Social Sport</Text>
-        </View>
-        
-        <View style = {styles.containerInfo}>
-          <TextInput style = {styles.inputUsername} placeholder = 'Ingresa tu nombre' placeholderTextColor='hsla(0, 0%, 80%, 1.00))' 
-          value={username} onChangeText = {setUsername} />
-          <Pressable onPress = {handleButton} style = {styles.loginButton}>
-            <Text style = {{textAlign: 'center', color: 'hsla(0, 0%, 80%, 1.00))', fontWeight: 'bold', fontSize: 17}}>Ingresar</Text>
-          </Pressable>
-          <Text style = {styles.subtitle}>Al ingresar se aceptan las Políticas de Terminos y Condiciones.</Text>
-        </View>
-
+      <View style={styles.container}>
+        {loading ? (
+          <View style={styles.loadingContainer}>
+            <ActivityIndicator size="large" color="#C97B3A" />
+            <Text style={styles.loadingText}>Cargando...</Text>
+          </View>
+        ) : (
+          <>
+            <View style={styles.containerTitle}>
+              <Image source={require('../assets/Logo_Blanco.png')} style={styles.logo} resizeMode="contain" />
+              <Text style={styles.titulo}>Bienvenido a Social Sport</Text>
+            </View>
+            <View style={styles.containerInfo}>
+              <TextInput style={styles.inputUsername} placeholder='Ingresa tu nombre' placeholderTextColor='hsla(0, 0%, 80%, 1.00))'
+                value={username} onChangeText={setUsername} />
+              <Pressable onPress={handleButton} style={styles.loginButton}>
+                <Text style={{ textAlign: 'center', color: 'hsla(0, 0%, 80%, 1.00))', fontWeight: 'bold', fontSize: 17 }}>Ingresar</Text>
+              </Pressable>
+              <Text style={styles.subtitle}>Al ingresar se aceptan las Políticas de Terminos y Condiciones.</Text>
+            </View>
+          </>
+        )}
       </View>
     </KeyboardAvoidingView>
     
@@ -95,6 +116,20 @@ const styles = StyleSheet.create({
     marginTop: 20,
     color: 'hsla(0, 0%, 80%, 1.00))',
     textAlign: 'center',
+  },
+
+  loadingContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    width: '100%',
+  },
+
+  loadingText: {
+    marginTop: 10,
+    fontSize: 18,
+    color: "#fff",
+    textAlign: "center",
   },
 });
 
