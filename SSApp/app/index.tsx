@@ -6,8 +6,7 @@ import Feed from "../pages/feed/Feed";
 
 
 export default function Index() {
-  //return <Publish/> //Descomentar esto para ver la pantalla publicar 
-  //return <Feed/> //Descomentar esto para ver la pantalla feed
+  /*return <Publish/>*/
 
   const [username, setUsername] = useState('');
 
